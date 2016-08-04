@@ -12,30 +12,30 @@ namespace WearShorts
 		{
 		}
 
-		// public static void StartLocationManager ()
-		// {
+		public static void StartLocationManager ()
+		{
 
-		// 	LocationManager = new CLLocationManager ();
+			LocationManager = new CLLocationManager ();
 
-		// 	if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-		// 		LocationManager.RequestWhenInUseAuthorization ();
-		// 	}
+			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+				LocationManager.RequestWhenInUseAuthorization ();
+			}
 
-		// 	LocationManager.DesiredAccuracy = 1000;
+			LocationManager.DesiredAccuracy = 1000;
 
-		// 	LocationManager.LocationsUpdated += delegate (object sender, CLLocationsUpdatedEventArgs e) {
-		// 		foreach (CLLocation l in e.Locations) {
-		// 			Console.WriteLine (l.Coordinate.Latitude.ToString () + ", " + l.Coordinate.Longitude.ToString ());
-		// 		}
-		// 	};
+			LocationManager.LocationsUpdated += delegate (object sender, CLLocationsUpdatedEventArgs e) {
+				foreach (CLLocation l in e.Locations) {
+					Console.WriteLine (l.Coordinate.Latitude.ToString () + ", " + l.Coordinate.Longitude.ToString ());
+				}
+			};
 
-		// 	LocationManager.StartUpdatingLocation ();
+			LocationManager.StartUpdatingLocation ();
 
-		// 	var lat = LocationManager.Location.Coordinate.Latitude.ToString ();
-		// 	var lon = LocationManager.Location.Coordinate.Longitude.ToString ();
+			var lat = LocationManager.Location.Coordinate.Latitude.ToString ();
+			var lon = LocationManager.Location.Coordinate.Longitude.ToString ();
 
-		// 	Console.WriteLine (lat, lon);
-		// }
+			Console.WriteLine (lat, lon);
+		}
 
 	}
 }
