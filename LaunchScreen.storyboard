@@ -1,27 +1,63 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
-	<dependencies>
-		<deployment identifier="iOS" />
-		<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530" />
-	</dependencies>
-	<scenes>
-		<!--View Controller-->
-		<scene sceneID="EHf-IW-A2E">
-			<objects>
-				<viewController id="01J-lp-oVM" sceneMemberID="viewController">
-					<layoutGuides>
-						<viewControllerLayoutGuide type="top" id="Llm-lL-Icb" />
-						<viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok" />
-					</layoutGuides>
-					<view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-						<rect key="frame" x="0.0" y="0.0" width="600" height="600" />
-						<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" />
-						<color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite" />
-					</view>
-				</viewController>
-				<placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder" />
-			</objects>
-			<point key="canvasLocation" x="53" y="375" />
-		</scene>
-	</scenes>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.36470588235294116" green="0.66274509803921566" blue="0.89411764705882357" alpha="1"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2512" translatesAutoresizingMaskIntoConstraints="NO" image="circle">
+                                <rect key="frame" x="110" y="110" width="379" height="379"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should I wear shorts today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="249" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="135" y="231" width="335" height="141"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" colorSpace="calibratedWhite" white="0" alpha="1"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint id="2513" firstItem="249" firstAttribute="top" secondItem="2512" secondAttribute="top" constant="121"/>
+                            <constraint id="2514" firstItem="2512" firstAttribute="bottom" secondItem="249" secondAttribute="bottom" constant="117"/>
+                            <constraint id="2515" firstItem="249" firstAttribute="leading" secondItem="2512" secondAttribute="leading" constant="25"/>
+                            <constraint id="2516" firstItem="2512" firstAttribute="trailing" secondItem="249" secondAttribute="trailing" constant="19"/>
+                            <constraint id="2518" firstItem="2512" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="90"/>
+                            <constraint id="2519" firstItem="2512" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="90"/>
+                            <constraint id="2727" firstItem="Ze5-6b-2t3" firstAttribute="trailingMargin" secondItem="2512" secondAttribute="trailing" constant="91"/>
+                            <constraint id="2728" firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="2512" secondAttribute="bottom" constant="111"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="women-shorts.jpg" width="426" height="640"/>
+        <image name="women-scarf.jpg" width="378" height="424"/>
+        <image name="shortshorts.png" width="640" height="550"/>
+        <image name="settings-icon-dark" width="50" height="50"/>
+        <image name="settings-icon-light" width="50" height="50"/>
+        <image name="thumbs-down" width="50" height="50"/>
+        <image name="thumbs-up" width="100" height="100"/>
+        <image name="facebook-icon" width="50" height="50"/>
+        <image name="twitter-icon" width="50" height="50"/>
+        <image name="back button" width="49" height="88"/>
+        <image name="shorts" width="184" height="215"/>
+        <image name="pants" width="242" height="189"/>
+        <image name="circle" width="379" height="379"/>
+    </resources>
 </document>

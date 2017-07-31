@@ -23,10 +23,8 @@
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>i386</MtouchArch>
+    <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -38,8 +36,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
@@ -55,8 +51,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
@@ -72,13 +66,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Amy Burns (6VJF5AQF8M)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
@@ -86,6 +78,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>Visual Studio: wear shorts Development</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -104,16 +97,60 @@
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="ForecastPCL">
-      <HintPath>..\packages\ForecastIOPortable.2.6.0\lib\portable45-net45+win8+wp8+wpa81\ForecastPCL.dll</HintPath>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="NodaTime">
+      <HintPath>packages\NodaTime.2.0.3\lib\netstandard1.3\NodaTime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DarkSkyCore">
+      <HintPath>packages\DarkSkyCore.3.0.0\lib\netstandard1.4\DarkSkyCore.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\settings-icon-dark.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\settings-icon-light.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\settings-icon-dark.imageset\Settings Filled-50.png" />
+    <ImageAsset Include="Assets.xcassets\settings-icon-light.imageset\Settings-50.png" />
+    <ImageAsset Include="Assets.xcassets\thumbs-up.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\thumbs-down.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\facebook-icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\twitter-icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\thumbs-down.imageset\icons8-Thumbs Down_50.png" />
+    <ImageAsset Include="Assets.xcassets\thumbs-down.imageset\icons8-Thumbs Down_100.png" />
+    <ImageAsset Include="Assets.xcassets\thumbs-up.imageset\icons8-Thumbs Up_100.png" />
+    <ImageAsset Include="Assets.xcassets\facebook-icon.imageset\icons8-Facebook Filled_50.png" />
+    <ImageAsset Include="Assets.xcassets\facebook-icon.imageset\icons8-Facebook Filled_100.png" />
+    <ImageAsset Include="Assets.xcassets\twitter-icon.imageset\icons8-Twitter Filled_50.png" />
+    <ImageAsset Include="Assets.xcassets\twitter-icon.imageset\icons8-Twitter Filled_100.png" />
+    <ImageAsset Include="Assets.xcassets\back button.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\back button.imageset\icons8-Back Filled_100.png" />
+    <ImageAsset Include="Assets.xcassets\back button.imageset\icons8-Back Filled_50.png" />
+    <ImageAsset Include="Assets.xcassets\settings-icon-dark.imageset\Settings Filled-100.png" />
+    <ImageAsset Include="Assets.xcassets\shorts.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\shorts.imageset\shorts1.png" />
+    <ImageAsset Include="Assets.xcassets\pants.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\pants.imageset\pants1.png" />
+    <ImageAsset Include="Assets.xcassets\circle.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\circle.imageset\circle.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Assets.xcassets\settings-icon-dark.imageset\" />
+    <Folder Include="Assets.xcassets\settings-icon-light.imageset\" />
+    <Folder Include="Assets.xcassets\thumbs-up.imageset\" />
+    <Folder Include="Assets.xcassets\thumbs-down.imageset\" />
+    <Folder Include="Assets.xcassets\facebook-icon.imageset\" />
+    <Folder Include="Assets.xcassets\twitter-icon.imageset\" />
+    <Folder Include="Assets.xcassets\back button.imageset\" />
+    <Folder Include="Assets.xcassets\shorts.imageset\" />
+    <Folder Include="Assets.xcassets\pants.imageset\" />
+    <Folder Include="Assets.xcassets\circle.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -132,6 +169,11 @@
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="LocationHelper.cs" />
+    <Compile Include="SettingsViewController.cs" />
+    <Compile Include="SettingsViewController.designer.cs">
+      <DependentUpon>SettingsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\women-shorts.jpg" />

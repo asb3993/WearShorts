@@ -32,6 +32,10 @@ $RECYCLE.BIN/
 *.resources
 test-results/
 
+# Xamarin Components
+
+Components/
+
 
 ################
 ### SUBLIME
@@ -113,6 +117,12 @@ x64/
 *.vspscc
 *.vssscc
 .builds
+
+# NuGet Packages Directory
+packages/
+*.nuget.targets
+*.lock.json
+*.nuget.props
 
 # Visual C++ cache files
 ipch/

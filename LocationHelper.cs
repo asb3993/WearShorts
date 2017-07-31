@@ -12,7 +12,7 @@ namespace WearShorts
 		{
 		}
 
-		public static void StartLocationManager ()
+        public static CLLocation StartLocationManager ()
 		{
 
 			LocationManager = new CLLocationManager ();
@@ -23,18 +23,7 @@ namespace WearShorts
 
 			LocationManager.DesiredAccuracy = 1000;
 
-			LocationManager.LocationsUpdated += delegate (object sender, CLLocationsUpdatedEventArgs e) {
-				foreach (CLLocation l in e.Locations) {
-					Console.WriteLine (l.Coordinate.Latitude.ToString () + ", " + l.Coordinate.Longitude.ToString ());
-				}
-			};
-
-			LocationManager.StartUpdatingLocation ();
-
-			var lat = LocationManager.Location.Coordinate.Latitude.ToString ();
-			var lon = LocationManager.Location.Coordinate.Longitude.ToString ();
-
-			Console.WriteLine (lat, lon);
+            return LocationManager.Location;
 		}
 
 	}

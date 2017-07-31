@@ -1,6 +1,6 @@
 // WARNING
 //
-// This file has been generated automatically by Xamarin Studio from the outlets and
+// This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
@@ -16,7 +16,7 @@ namespace WearShorts
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton decideButton { get; set; }
+        UIKit.UILabel infoLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -26,11 +26,15 @@ namespace WearShorts
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel outcomeLabel { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton settingsButton { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
-            if (decideButton != null) {
-                decideButton.Dispose ();
-                decideButton = null;
+            if (infoLabel != null) {
+                infoLabel.Dispose ();
+                infoLabel = null;
             }
 
             if (outcomeImage != null) {
@@ -41,6 +45,11 @@ namespace WearShorts
             if (outcomeLabel != null) {
                 outcomeLabel.Dispose ();
                 outcomeLabel = null;
+            }
+
+            if (settingsButton != null) {
+                settingsButton.Dispose ();
+                settingsButton = null;
             }
         }
     }

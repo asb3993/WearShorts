@@ -1,14 +1,20 @@
 ﻿using System;
 
 using UIKit;
-using ForecastIOPortable;
-using ForecastIOPortable.Models;
+using DarkSky;
+using DarkSky.Models;
+using DarkSky.Services;
+using DarkSky.Extensions;
+using System.Threading.Tasks;
+using Foundation;
 
 namespace WearShorts
 {
 	public partial class ViewController : UIViewController
 	{
-		protected ViewController (IntPtr handle) : base (handle)
+        DarkSkyService darkSkyService = new DarkSkyService("3564a52abf36be15146ffd6536810fc0");
+
+        protected ViewController (IntPtr handle) : base (handle)
 		{
 			// Note: this .ctor should not contain any initialization logic.
 		}
@@ -16,39 +22,70 @@ namespace WearShorts
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			// Perform any additional setup after loading the view, typically from a nib.
 
-			decideButton.TouchUpInside += (object sender, EventArgs args) => {
-				LocationHelper.StartLocationManager ();
-				GetForcast ();
-			};
+            GetForcast(Settings.TempUnit);
 		}
 
-		public override void DidReceiveMemoryWarning ()
+        async Task<DarkSkyResponse> GetForcast(Settings.Unit unit) 
+		{
+			//find location
+			var location = LocationHelper.StartLocationManager();
+
+			var lat = Convert.ToDouble(location.Coordinate.Latitude);
+			var lon = Convert.ToDouble(location.Coordinate.Longitude);
+
+			//setting forecast to Current Location
+            var forecast = await darkSkyService.GetForecast(lat, lon);
+
+            //Threshold as set by the slider in settings
+            nint threshold = Settings.ThresholdTemp;
+
+            var unitMarker = "F";
+
+            if (unit == Settings.Unit.Celcius){
+                forecast = await darkSkyService.GetForecast(lat, lon, new DarkSkyService.OptionalParameters { 
+                MeasurementUnits = "si"
+                });
+                unitMarker = "C";
+            } else if (unit == Settings.Unit.Fahrenheit){
+                forecast = await darkSkyService.GetForecast(lat, lon);
+            }
+
+			var currentTemp = forecast.Response.Currently.ApparentTemperature;
+
+            Settings.CurrentTemp = (int)currentTemp;
+
+			var forecastSummary = forecast.Response.Currently.Summary;
+
+            if (currentTemp >= threshold)
+			{
+                View.BackgroundColor = UIColor.FromRGB(0.91f, 0.59f, 0.44f);
+                outcomeLabel.Text = "Yes! It's warm today.";
+                infoLabel.Text = $"Right now it is {currentTemp.ToString()}" + unitMarker + " and today's forcast is: " + forecastSummary;
+				outcomeImage.Image = UIImage.FromBundle("shorts");
+			}
+            else if (currentTemp < threshold)
+			{
+                View.BackgroundColor = UIColor.FromRGB(0.44f, 0.73f, 0.91f);
+				outcomeLabel.Text = "No, It's too cold for shorts.";
+                infoLabel.Text = $"Right now it is {currentTemp.ToString()}" + unitMarker + " and today's forcast is: " + forecastSummary;
+				outcomeImage.Image = UIImage.FromBundle("pants");
+			}
+			return forecast;
+		}
+
+        public override void DidReceiveMemoryWarning ()
 		{
 			base.DidReceiveMemoryWarning ();
 			// Release any cached data, images, etc that aren't in use.
 		}
 
-		async System.Threading.Tasks.Task<Forecast> GetForcast ()
-		{
+        [Action("UnwindToMainViewController:")]
+        public void UnwindToMainViewController(UIStoryboardSegue segue)
+        {
+            GetForcast(Settings.TempUnit);
+        }
 
-			var client = new ForecastApi ("3564a52abf36be15146ffd6536810fc0");
-			Forecast result = await client.GetWeatherDataAsync (41.3851, 2.1734);
-			var temp = result.Currently.Temperature;
-
-			if (temp < 65) {
-				outcomeLabel.Text = $"Not today, it's a cool {temp.ToString ()}\u2109 right now";
-				outcomeImage.Image = UIImage.FromFile ("women-scarf.jpg");
-			} else if (temp >= 65) {
-				outcomeLabel.Text = $"Totes! It's a sweaty {temp.ToString ()}\u2109 right now";
-				outcomeImage.Image = UIImage.FromFile ("women-shorts.jpg");
-			}
-
-
-
-			return result;
-		}
 	}
 }
 
